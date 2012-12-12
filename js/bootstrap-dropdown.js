@@ -45,15 +45,22 @@
 
       if ($this.is('.disabled, :disabled')) return
 
-      $parent = getParent($this)
+        if($(this).hasClass('dropdown-submenu')){
+            
+            $this.toggleClass('open');
+        
+        }else{
+        
+            $parent = getParent($this)
 
-      isActive = $parent.hasClass('open')
+                isActive = $parent.hasClass('open')
 
-      clearMenus()
+                clearMenus()
 
-      if (!isActive) {
-        $parent.toggleClass('open')
-      }
+                if (!isActive) {
+                    $parent.toggleClass('open')
+                }
+        }
 
       $this.focus()
 
